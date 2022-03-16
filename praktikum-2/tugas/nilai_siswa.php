@@ -56,12 +56,12 @@
     </form>
   </div>
   <?php
-    $proses = $_POST['proses'];
-    $nama_siswa = $_POST['nama'];
-    $mata_kuliah = $_POST['matkul'];
-    $nilai_uts = $_POST['nilai_uts'];
-    $nilai_uas = $_POST['nilai_uas'];
-    $nilai_tugas = $_POST['nilai_tugas'];
+    $proses = isset($_POST['proses']) ? $_POST['proses'] : '';
+    $nama_siswa = isset($_POST['nama']) ? $_POST['nama'] : '';
+    $mata_kuliah = isset($_POST['matkul']) ? $_POST['matkul'] : '';
+    $nilai_uts = isset($_POST['nilai_uts']) ? $_POST['nilai_uts'] : 0;
+    $nilai_uas = isset( $_POST['nilai_uas']) ? $_POST['nilai_uas'] : 0;
+    $nilai_tugas = isset($_POST['nilai_tugas']) ? $_POST['nilai_tugas'] : 0;
 
     if(!empty($proses)){
       echo'Proses : ' .$proses;
@@ -83,16 +83,16 @@
 
     if ($persentase == "") {
         echo "";
-    } else if ($persentase >= 0 && $persentase <= 35) {
-        echo '<br/>Grade Nilai : E';
-    } else if ($persentase >= 36 && $persentase <= 55) {
-        echo '<br/>Grade Nilai : D';
-    } else if ($persentase >= 56 && $persentase <= 69) {
-        echo '<br/>Grade Nilai : C';
-    } else if ($persentase >= 70 && $persentase <= 84) {
-        echo '<br/>Grade Nilai : B';
-    } else if ($persentase >= 85 && $persentase <= 100) {
+    } else if ($persentase <= 100 && $persentase >= 85) {
         echo '<br/>Grade Nilai : A';
+    } else if ($persentase <= 84 && $persentase >= 70) {
+        echo '<br/>Grade Nilai : B';
+    } else if ($persentase <= 69 && $persentase >= 56) {
+        echo '<br/>Grade Nilai : C';
+    } else if ($persentase <= 55 && $persentase >= 36) {
+        echo '<br/>Grade Nilai : D';
+    } else if ($persentase <= 35 && $persentase >= 0) {
+        echo '<br/>Grade Nilai : E';
     } else {
       echo '<br/>Grade Nilai : I';
     }
@@ -103,19 +103,19 @@
         echo ' Sangat Memuaskan<br/>';
         break;
       case ($persentase < 85 && $persentase >= 70) :
-        echo 'Memuaskan<br/>';
+        echo ' Memuaskan<br/>';
         break;
       case ($persentase < 70 && $persentase >=  56) :
-        echo 'Cukup<br/>';
+        echo ' Cukup<br/>';
         break;
       case ($persentase < 56 && $persentase >=  36) :
-        echo 'Kurang<br/>';
+        echo ' Kurang<br/>';
         break;
       case ($persentase < 36 && $persentase >=  0) :
-        echo 'Sangat Kurang<br/>';
+        echo ' Sangat Kurang<br/>';
         break;
       default : 
-        echo 'Tidak Ada';
+        echo ' Tidak Ada';
     }
     ?>
   <div class="card-footer text-muted">Develop By @Joyse Maydossiming</div>

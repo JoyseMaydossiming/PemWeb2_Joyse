@@ -56,12 +56,12 @@
     </form>
   </div>
   <?php
-    $proses = $_GET['proses'];
-    $nama_siswa = $_GET['nama'];
-    $mata_kuliah = $_GET['matkul'];
-    $nilai_uts = $_GET['nilai_uts'];
-    $nilai_uas = $_GET['nilai_uas'];
-    $nilai_tugas = $_GET['nilai_tugas'];
+    $proses = isset($_GET['proses']) ? $_GET['proses'] : '';
+    $nama_siswa = isset($_GET['nama']) ? $_GET['nama'] : '';
+    $mata_kuliah = isset($_GET['matkul']) ? $_GET['matkul'] : '';
+    $nilai_uts = isset($_GET['nilai_uts']) ? $_GET['nilai_uts'] : 0;
+    $nilai_uas = isset( $_GET['nilai_uas']) ? $_GET['nilai_uas'] : 0;
+    $nilai_tugas = isset($_GET['nilai_tugas']) ? $_GET['nilai_tugas'] : 0;
 
     echo'Proses : ' .$proses;
     echo'<br/>Nama Lengkap : '.$nama_siswa;
