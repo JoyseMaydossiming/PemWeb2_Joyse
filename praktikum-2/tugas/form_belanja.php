@@ -67,10 +67,10 @@
     </div>
   </div>
   <?php
-    $proses = $_POST['proses'];
-    $nama_customer = $_POST['customer'];
-    $produk = $_POST['produk'];
-    $jumlah = $_POST['jumlah'];
+    $proses = isset($_POST['proses']) ? $_POST['proses'] : '';
+    $nama_customer = isset($_POST['customer']) ? $_POST['customer'] : '';
+    $produk = isset($_POST['produk']) ? $_POST['produk'] : '';
+    $jumlah = isset($_POST['jumlah']) ? $_POST['jumlah'] : 0;;
     $total = '';
     if ($produk == 'TV') {
       $total = $jumlah * 4200000;
